@@ -1,0 +1,31 @@
+{
+  "name": "sbkup",
+  "version": "1.0.0",
+  "description": "Backup Utility for Slack",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "watch": "nodemon --exec electron .",
+    "reset": "git reset --hard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Torbay-Tech/sbkup.git"
+  },
+  "keywords": [
+    "slack",
+    "backup",
+    "utility"
+  ],
+  "author": "Torbay Technologies Inc",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.0",
+    "nodemon": "^2.0.0"
+  },
+  "dependencies": {},
+  "bugs": {
+    "url": "https://github.com/Torbay-Tech/sbkup/issues"
+  },
+  "homepage": "https://github.com/Torbay-Tech/sbkup#readme"
+}
