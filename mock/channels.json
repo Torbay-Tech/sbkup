@@ -1,0 +1,47 @@
+[
+  {
+    "id": "238932489234",
+    "name": "azureboards",
+    "is_private": true
+  },
+  {
+    "id": "348543785344",
+    "name": "businessupdates",
+    "is_private": true
+  },
+  {
+    "id": "677856776566",
+    "name": "businessupdate",
+    "is_private": false
+  },
+  {
+    "id": "567563546547",
+    "name": "condonuitydev",
+    "is_private": false
+  },
+  {
+    "id": "765885756757",
+    "name": "azurepipeline",
+    "is_private": false
+  },
+  {
+    "id": "567342222454",
+    "name": "general",
+    "is_private": false
+  },
+  {
+    "id": "876567456456",
+    "name": "random",
+    "is_private": false
+  },
+  {
+    "id": "345345345345",
+    "name": "torbayleads",
+    "is_private": true
+  },
+  {
+    "id": "8876575676576",
+    "name": "secureme",
+    "is_private": true
+  }
+]

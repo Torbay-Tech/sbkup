@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline'">
+    <title>Slack Backup</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <header>
+      <button id="show-modal">+</button>
+      <input type="text" id="search" placeholder="search"></input>
+      <button id="reset">reset</button>
+    </header>
+
+    <main>
+      <p id="no-items">No Items</p>
+      <div id="channels">
+      </div>
+    </main>
+
+    <div id="modal">
+      <input type="text" id="token" placeholder="Enter Token">
+      <button id="add-token">Add Token</button>
+      <button id="close-modal">Cancel</button>
+    </div>
+
+    <script>
+      require('./app.js')
+    </script>
+  </body>
+</html>
+
