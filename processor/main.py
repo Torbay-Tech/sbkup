@@ -1,16 +1,11 @@
-import sys
-#import lib.logging as logging
-#import lib.readCfg as readCfg
-#import lib.utilities as util
-#import lib.core.backup as backup
-#import lib.core.authtest as authtest
+from lib.logging import Logger
+#from lib.readCfg import ReadCfg
+from lib.core.backup import Backup
 
-import TestClass as tc
+logging = Logger()
+log = logging.getLogger(__file__)
+log.info("Initializing")
+backup = Backup()
+backup.executeBackup()
 
-#log = logging.getLogger(__file__)
-#log.info("Initializing")
-print("Initializing")
-sys.stdout.flush()
-#backup.executeBackup()
-#authtest.testAuth()
 

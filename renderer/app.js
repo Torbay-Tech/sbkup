@@ -9,6 +9,18 @@ let showModal = document.getElementById('show-modal'),
     search = document.getElementById('search'),
     reset = document.getElementById('reset')
 
+ipcRenderer.on('menu-add-token', () => {
+    showModal.click()
+})
+
+ipcRenderer.on('menu-read-channel', () => {
+    channels.open()
+})
+
+ipcRenderer.on('menu-search', () => {
+    search.focus()
+})
+
 //Search for a channel
 search.addEventListener('keyup', e => {
     Array.from( document.getElementsByClassName('channel-item') ).forEach( channel => {
@@ -68,10 +80,13 @@ addToken.addEventListener('click', ev => {
 
 ipcRenderer.on('new-token-success', (e, channel_list) => {
 
+    sendToPython()
+
     //Display the channel list received
     for(var i=0; i<channel_list.length; i++) {
         channels.addChannel(channel_list[i])
     }
+
 
     toggleModalButtons()
     modal.style.display = 'none'
@@ -82,3 +97,22 @@ token.addEventListener('keyup', ev => {
         addToken.click()
     }
 })
+
+
+function sendToPython() {
+    var python = require('child_process').spawn('python', [`${__dirname}/../processor/main.py`]);
+
+    python.stdout.on('data', function (data) {
+        console.log("Python response: ", data.toString('utf8'));
+        //result.textContent = data.toString('utf8');
+    });
+
+    python.stderr.on('data', (data) => {
+        console.error(`stderr: ${data}`);
+    });
+
+    python.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+    });
+
+}

@@ -1,6 +1,7 @@
 // Modules
 const {app, BrowserWindow, ipcMain} = require('electron')
 const windowStateKeeper = require('electron-window-state')
+const appMenu = require('./menu')
 
 const {PythonShell} = require('python-shell')
 
@@ -19,18 +20,15 @@ const channels = require("./mock/channels.json")
 
 ipcMain.on('new-token', (e, token) => {
 
-
   //  e.sender.send('new-token-success', channels)
-
-
 
     var config = ini.parse(fs.readFileSync(configFile, 'utf-8'))
     config.slack.authkey = token
     fs.writeFileSync('config/secret.ini', ini.stringify(config))
 
-    PythonShell.run('./processor/main.py', null, function (err, output) {
-      console.log(output)
-    })
+    // PythonShell.run('./processor/main.py', null, function (err, output) {
+    //   console.log(output)
+    // })
 
 
     e.sender.send('new-token-success', channels)
@@ -57,6 +55,8 @@ function createWindow () {
   // Load main.html into the new BrowserWindow
   mainWindow.loadFile('renderer/main.html')
   //mainWindow.loadFile('mock/data/azureboards.html')
+
+  appMenu(mainWindow.webContents)
 
   state.manage(mainWindow)
 

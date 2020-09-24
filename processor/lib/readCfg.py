@@ -22,7 +22,7 @@ anotherkey = itsvalue
 
 
 class ConfigReader:
-    def read_config(cfg_files):
+    def read_config(self, cfg_files):
         if cfg_files != None:
             config = configparser.ConfigParser()
 

@@ -1,4 +1,14 @@
+const fs = require('fs')
 let channels = document.getElementById('channels')
+
+let chatWinJS
+fs.readFile(`${__dirname}/chatwin.js`, (err, data) => {
+    chatWinJS = data.toString()
+})
+
+window.addEventListener('message', e => {
+    e.source.close()
+})
 
 //Change on Keypress
 
@@ -22,7 +32,18 @@ exports.open = () => {
 
     console.log('opening...' + contentURL)
     //Open the chat in proxy browser window
-    window.open(`${__dirname}/../mock/data/azureboards.html`,'')
+    let chatWin = window.open(`${__dirname}/../mock/data/azureboards.html`,'',`
+        maxWidth=2000,
+        maxHeight=2000,
+        width=1200,
+        height=800,
+        backgroundColor=#DEDEDE,
+        nodeIntegration=0,
+        contextIsolation=1
+    `)
+
+    //Inject custom javascript
+    chatWin.eval(chatWinJS)
 
 }
 
