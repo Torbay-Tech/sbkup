@@ -9,8 +9,9 @@ from lib.logging import Logger
 #import lib.readCfg as readCfg
 #import lib.core.listChannels as lc
 #import lib.core.downloadChannel as dc
-#from lib.core.userslist import UserList
+from lib.core.userslist import UsersList
 from lib.core.authtest import AuthTest
+from lib.core.listChannels import ListChannels
 
 logging = Logger()
 log = logging.getLogger(__file__)
@@ -32,15 +33,17 @@ class Backup:
             log.info("Auth Test was successful")
         else:
             log.error("Auth Test Failed- check authentication token permissions")
-        sys.exit()
-        '''
+            sys.exit()
+        
         log.info ("Initializing Step  1 A : Download users")
-        ul = UserList()
+        ul = UsersList()
         ul.loadusers()
         log.info("Initiating Step 2: Get Channels list")
+        lc = ListChannels()
         clist= lc.getChannelList()
-        log.info(f"There are {len(clist)} channels that are returned")
-
+        
+        #log.info(f"There are {len(clist)} channels that are returned")
+        '''
         log.info("Starting Step 3: channels conversation backup")
         for c in clist:
         log.info(f"Starting download for channel : {c['name']}")

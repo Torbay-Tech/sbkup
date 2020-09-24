@@ -5,7 +5,7 @@ import sys
 logging = Logger()
 log = logging.getLogger(__file__)
 readCfg= ConfigReader()
-config = readCfg.read_config(['processor/config/secret.properties'])
+config = readCfg.read_config(['processor/config/secret.ini'])
 class Utilities:
     def __init__(self):
         log.info("Initializing")

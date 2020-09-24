@@ -1,0 +1,57 @@
+[
+    {
+        "id": "C55UXT4UR",
+        "name": "random",
+        "is_private": false
+    },
+    {
+        "id": "C56E38SLB",
+        "name": "general",
+        "is_private": false
+    },
+    {
+        "id": "C91DGQT5Z",
+        "name": "secureme",
+        "is_private": false
+    },
+    {
+        "id": "C92C63TD4",
+        "name": "torbaywebdev",
+        "is_private": false
+    },
+    {
+        "id": "CATLC6F7B",
+        "name": "frontendportal",
+        "is_private": false
+    },
+    {
+        "id": "CN50ZFYF5",
+        "name": "azurepipeline",
+        "is_private": false
+    },
+    {
+        "id": "CNA2NC6Q1",
+        "name": "azureboards",
+        "is_private": false
+    },
+    {
+        "id": "CNR4P8TJT",
+        "name": "condonuitydev",
+        "is_private": false
+    },
+    {
+        "id": "C01AWAS9399",
+        "name": "businessupdate",
+        "is_private": false
+    },
+    {
+        "id": "GN0GF735F",
+        "name": "condonuityleads",
+        "is_private": true
+    },
+    {
+        "id": "GN6FABY3E",
+        "name": "businessupdates",
+        "is_private": true
+    }
+]
