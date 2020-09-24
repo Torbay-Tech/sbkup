@@ -94,3 +94,5 @@ typings/
 processor/lib/__pycache__/
 
 processor/lib/core/__pycache__/
+processor/config/secret.ini
+processor/data/

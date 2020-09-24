@@ -8,10 +8,11 @@ from lib.core.authtest import AuthTest
 from lib.logging import Logger
 #import lib.readCfg as readCfg
 #import lib.core.listChannels as lc
-#import lib.core.downloadChannel as dc
+from lib.core.downloadChannel import DownloadChannel
 from lib.core.userslist import UsersList
 from lib.core.authtest import AuthTest
 from lib.core.listChannels import ListChannels
+from lib.core.htmlgenerator import HtmlGenerator
 
 logging = Logger()
 log = logging.getLogger(__file__)
@@ -40,18 +41,19 @@ class Backup:
         ul.loadusers()
         log.info("Initiating Step 2: Get Channels list")
         lc = ListChannels()
-        clist= lc.getChannelList()
-        
-        #log.info(f"There are {len(clist)} channels that are returned")
-        '''
+        clist= lc.getChannelList()        
+        log.info(f"There are {len(clist)} channels that are returned")
         log.info("Starting Step 3: channels conversation backup")
+        dc = DownloadChannel()
         for c in clist:
-        log.info(f"Starting download for channel : {c['name']}")
-        #if c['name'] == 'secureme': ## REMOVE THIS - ADDED FOR TESTING ONLY
-        dc.downloadConversation(c)
+            log.info(f"Starting download for channel : {c['name']}")
+            #if c['name'] == 'condonuityleads': ## REMOVE THIS - ADDED FOR TESTING ONLY
+            dc.downloadConversation(c)
         log.info("Back up Completed for all channels")
-        log.info("Starting Step 4 : Create a HTML Conversation view")
-        import lib.core.htmlgenerator as hg 
+
+        log.info("Starting Step 4 : Create a HTML Conversation view")      
+        
+        hg = HtmlGenerator() 
         hg.generateHtmlView()
-        '''
+        
 

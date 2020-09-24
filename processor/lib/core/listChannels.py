@@ -53,7 +53,7 @@ class ListChannels:
             else:
                 log.debug("No more channels ")
                 continued = False
-        log.info(clist)
+        log.debug(clist)
         self.updateRawFile(json.dumps(clist, indent=4))
         return clist   
         
